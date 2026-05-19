@@ -6,6 +6,7 @@ quit — to exit the game
 """
 trial = 3
 previous = ""
+engine = False
 while True:
     command = input("Type your command: ").strip().lower()
     
@@ -26,12 +27,21 @@ while True:
             if previous != "started":
                 print("Car is moving")
                 previous = "started"
+                engine = True
             else:
                 print("Car has started already")
+        
+        
+        
         elif command == "stop":
-            if previous != "stopped":
+            if not engine:
+                print("engine is still off!")
+            
+            
+            elif previous != "stopped" and engine:
                 print("Car has stopped!")
                 previous = "stopped"
+                
             else:
                 print("Car has stopped already!")
         elif command == "help":
