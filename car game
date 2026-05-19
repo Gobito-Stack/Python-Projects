@@ -1,0 +1,43 @@
+print("Car Game")
+instruction = """
+start — to move the car
+stop — to stop the car
+quit — to exit the game
+"""
+trial = 3
+previous = ""
+while True:
+    command = input("Type your command: ").strip().lower()
+    
+    if command.isdigit():
+        if trial > 0:
+            print(f"Numbers are not allowed {trial} left!")
+            trial -= 1
+        else:
+            print("Out of Trials!")
+            break
+    
+    elif command == "quit":
+        print("Game ended!")
+        break
+    
+    else:
+        if command == "start":
+            if previous != "started":
+                print("Car is moving")
+                previous = "started"
+            else:
+                print("Car has started already")
+        elif command == "stop":
+            if previous != "stopped":
+                print("Car has stopped!")
+                previous = "stopped"
+            else:
+                print("Car has stopped already!")
+        elif command == "help":
+            print(instruction)
+    
+    
+        else:
+            print("unknown input! type start, stop, quit, or help")
+       
