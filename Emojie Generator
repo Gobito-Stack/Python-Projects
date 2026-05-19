@@ -1,0 +1,12 @@
+print("Emoji Generator")
+
+message = input("> ")
+emojie_list = {
+    ":(" : "🥲",
+    ":)" : "😊"
+}
+words = message.split(" ")
+output = ""
+for word in words:
+    output += emojie_list.get(word, word) + " "
+print(output)
